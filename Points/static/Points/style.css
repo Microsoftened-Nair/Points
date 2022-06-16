@@ -1,0 +1,59 @@
+
+h1 {
+
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-size: 72;
+}
+
+    button {
+    	color: black;
+    	margin-left: 50px;
+        display: inline-block;
+        padding: 6px 25px;
+        font-weight: bold;
+        font-size: 60px;
+        background: #ffffff;
+        box-shadow: 0 0 0 5px #ffffff,
+                    inset 0 0 0 2px #000000;
+    }
+  button:focus,
+  button:active:focus,
+  button.active:focus,
+  button.focus,
+  button:active.focus,
+  button.active.focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+  button:hover,
+  button:focus,
+  button.focus {
+    text-decoration: underline;
+  }
+  button:active,
+  button.active {
+    outline: 0;
+    background-image: none;
+  }
+
+ .container {
+  	padding: 100;
+  }
+
+
+ .container2 {
+  	padding-left: 50;
+  }
+
+ .sbs1 {
+    width:80%; 
+    display: inline-block; 
+    float:left; 
+    margin-right: 10px;
+}
+ .sbs2 {
+    width: 19%; 
+    display: inline-block; 
+    border: 1px solid red;
+}
