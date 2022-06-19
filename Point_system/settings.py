@@ -1,3 +1,5 @@
+import django_heroku
+django_heroku.settings(locals())
 """
 Django settings for Point_system project.
 
