@@ -4,7 +4,7 @@ import openpyxl as op
 
 def addm(request):
     err_msg=""
-    wb = op.load_workbook(filename="Points.xlsx")
+    wb = op.load_workbook(filename="Points/Points.xlsx")
     ws = wb.active
     megh = ws['A1']
     rishi = ws['B1']
@@ -19,13 +19,13 @@ def addm(request):
         rp = rishi.value
     else:
         err_msg = 'Insufficient balance'
-    wb.save(filename="Points.xlsx")
+    wb.save(filename="Points/Points.xlsx")
 
     return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
 def addr(request):
     err_msg=""
-    wb = op.load_workbook(filename="Points.xlsx")
+    wb = op.load_workbook(filename="Points/Points.xlsx")
     ws = wb.active
     megh = ws['A1']
     rishi = ws['B1']
@@ -42,14 +42,14 @@ def addr(request):
     else:
         err_msg = 'Insufficient balance'
 
-    wb.save(filename='Points.xlsx')
+    wb.save(filename='Points/Points.xlsx')
 
     return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
 
 def index(request):
     err_msg=""
-    wb = op.load_workbook(filename="Points.xlsx")
+    wb = op.load_workbook(filename="Points/Points.xlsx")
     ws = wb.active
     megh = ws['A1']
     rishi = ws['B1']
