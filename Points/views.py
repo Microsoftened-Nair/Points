@@ -1,60 +1,48 @@
 from django.shortcuts import render
+from Points.models import Post
 from django.http import HttpResponse
-import openpyxl as op
 
 def addm(request):
     err_msg=""
-    wb = op.load_workbook(filename="Points/Points.xlsx")
-    ws = wb.active
-    megh = ws['A1']
-    rishi = ws['B1']
-    mp = megh.value
-    rp = rishi.value
+    val = Post.objects.first()
+    rp = val.rp
+    mp = val.mp
     if rp > 0:
-        ws['B1'] = rp - 1
-        ws['A1'] = mp + 1
-        megh = ws['A1']
-        rishi = ws['B1']
-        mp = megh.value
-        rp = rishi.value
+        val.rp = rp - 1
+        val.mp = mp + 1
+        val.save()
+        mp = val.mp
+        rp = val.rp
     else:
         err_msg = 'Insufficient balance'
-    wb.save(filename="Points/Points.xlsx")
 
     return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
 def addr(request):
     err_msg=""
-    wb = op.load_workbook(filename="Points/Points.xlsx")
-    ws = wb.active
-    megh = ws['A1']
-    rishi = ws['B1']
-    mp = megh.value
-    rp = rishi.value
+
+    val = Post.objects.first()
+    rp = val.rp
+    mp = val.mp
 
     if mp > 0:
-        ws['A1'] = mp - 1
-        ws['B1'] = rp + 1
-        megh = ws['A1']
-        rishi = ws['B1']
-        mp = megh.value
-        rp = rishi.value
+        val.mp = mp - 1
+        val.rp = rp + 1
+        val.save()
+        mp = val.mp
+        rp = val.rp
     else:
         err_msg = 'Insufficient balance'
 
-    wb.save(filename='Points/Points.xlsx')
 
     return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
 
 def index(request):
     err_msg=""
-    wb = op.load_workbook(filename="Points/Points.xlsx")
-    ws = wb.active
-    megh = ws['A1']
-    rishi = ws['B1']
-    mp = megh.value
-    rp = rishi.value
+    val = Post.objects.first()
+    rp = val.rp
+    mp = val.mp
     return render(request, 'index.html',{
     'rp':rp,
     'mp':mp,
